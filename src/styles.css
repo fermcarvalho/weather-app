@@ -1,0 +1,50 @@
+input[type="text"] {
+  width: 270px;
+  border-radius: 10px;
+  border: 1px solid #fafafa;
+}
+
+input[type="submit"],
+#current-location-button {
+  width: 80px;
+  background-color: #ff7e67;
+  border: 1px solid #ff7e67;
+  border-radius: 10px;
+  color: #fafafa;
+}
+
+#change-to-celsius,
+#change-to-farenheit {
+  color: #ff7e67;
+}
+
+.weather-app {
+  font-family: "Poppins", sans-serif;
+  max-width: 680px;
+  border: 1px solid #1b3c68;
+  border-radius: 10px;
+  margin: 60px auto;
+  background-color: #1b3c68;
+  color: #fafafa;
+  padding: 20px;
+}
+
+.search {
+  margin-left: 10px;
+}
+
+.cities {
+  color: #ff7e67;
+}
+
+.cities :hover {
+  background-color: #fafafa;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.next-days :hover {
+  background-color: #ff7e67;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
