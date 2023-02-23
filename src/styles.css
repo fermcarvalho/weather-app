@@ -23,7 +23,7 @@ input[type="submit"],
   max-width: 680px;
   border: 1px solid #1b3c68;
   border-radius: 10px;
-  margin: 60px auto;
+  margin: 60px auto 20px auto;
   background-color: #1b3c68;
   color: #fafafa;
   padding: 20px;
