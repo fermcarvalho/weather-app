@@ -113,6 +113,18 @@ function searchForCity(event) {
   axios.get(apiUrl).then(showWeather);
 }
 
+// bonus feature added a feature when click on the city of the top change the weather
+function searchOnClick(event) {
+  event.preventDefault();
+  const city = event.target.innerText;
+  let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeather);
+}
+
+const citySearch = document.querySelector(".city-choice");
+citySearch.addEventListener("click", searchOnClick);
+
 function showCurrentPosition(position) {
   let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
   let lat = position.coords.latitude;
