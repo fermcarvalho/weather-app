@@ -18,6 +18,9 @@ input[type="submit"],
   color: #ff7e67;
 }
 
+#sky-condition {
+  text-transform: capitalize;
+}
 .weather-app {
   font-family: "Poppins", sans-serif;
   max-width: 680px;

@@ -92,17 +92,22 @@ changeTemperatureFarenheit.addEventListener("click", updateTempFarenheit);
 //and the current temperature of the city.
 
 function showWeather(response) {
+  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   let displayTemperature = document.querySelector("#main-temperature");
   displayTemperature.innerHTML = `${temperature}`;
   let changeCity = document.querySelector("#city");
   changeCity.innerHTML = response.data.name;
-  let weatherCondition = response.data.weather[0].main;
+  let weatherCondition = response.data.weather[0].description;
   let displayWeatherCondition = document.querySelector("#sky-condition");
   displayWeatherCondition.innerHTML = `${weatherCondition}`;
   let realFeelWeather = Math.round(response.data.main.feels_like);
   let feelsLikeTemp = document.querySelector("#feelsLikeTemp");
   feelsLikeTemp.innerHTML = ` Feels Like ${realFeelWeather}°C`;
+  let humidity = document.querySelector("#humidity");
+  humidity.innerHTML = response.data.main.humidity;
+  let wind = document.querySelector("#wind");
+  wind.innerHTML = Math.round(response.data.wind.speed);
 }
 
 function searchForCity(event) {

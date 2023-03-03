@@ -21,7 +21,7 @@
       src="https://kit.fontawesome.com/3d8f35543e.js"
       crossorigin="anonymous"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather App</title>
   </head>
   <body>
@@ -58,11 +58,11 @@
         </div>
         <div class="col">
           <span class="units">
-            <span class="h1 fw-bold"id="main-temperature">-4</span>
-            <span class="h6 fw-bold"></span>
+            <span class="h1 fw-bold" id="main-temperature">-4</span>
+            <span class="h3 fw-bold">
               ><a href="" id="change-to-celsius">°C |</a></span
             >
-            <span class="h6 fw-bold" id="farenheit-Temp"
+            <span class="h3 fw-bold" id="farenheit-Temp"
               ><a href="" id="change-to-farenheit">°F</a></span
             >
           </span>
@@ -75,13 +75,17 @@
       <div class="row text-center">
         <div class="col">
           <i class="fa-solid fa-umbrella"></i> Precipitation:
-          <strong>0mm</strong>
+          <strong id="precipitation">0mm</strong>
         </div>
         <div class="col">
-          <i class="fa-solid fa-wind"></i> Wind: <strong>10km/h</strong>
+          <i class="fa-solid fa-wind"></i>
+          <span>Wind <strong id="wind"></strong><strong> Km/h</strong></span>
         </div>
         <div class="col">
-          <i class="fa-solid fa-droplet"></i> Humidity: <strong>60%</strong>
+          <i class="fa-solid fa-droplet"></i>
+          <span
+            >Humidity: <strong id="humidity"></strong><strong>%</strong></span
+          >
         </div>
       </div>
       <div class="row border-top mt-4 pt-3 next-days">
@@ -113,8 +117,10 @@
       </div>
     </div>
     <div class="text-center">
-        <a href="https://github.com/fermcarvalho/weather-app" target="_blank">Open-Source Code</a>
-        <span class="codedby"> by Fernanda Carvalho</span>
+      <a href="https://github.com/fermcarvalho/weather-app" target="_blank"
+        >Open-Source Code</a
+      >
+      <span class="codedby"> by Fernanda Carvalho</span>
     </div>
     <script src="src/index.js"></script>
   </body>
