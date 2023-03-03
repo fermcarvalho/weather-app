@@ -103,7 +103,7 @@ function showWeather(response) {
   displayWeatherCondition.innerHTML = `${weatherCondition}`;
   let realFeelWeather = Math.round(response.data.main.feels_like);
   let feelsLikeTemp = document.querySelector("#feelsLikeTemp");
-  feelsLikeTemp.innerHTML = ` Feels Like ${realFeelWeather}°C`;
+  feelsLikeTemp.innerHTML = ` ${realFeelWeather}°C`;
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
