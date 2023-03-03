@@ -97,7 +97,7 @@ function showWeather(response) {
   let displayTemperature = document.querySelector("#main-temperature");
   displayTemperature.innerHTML = `${temperature}`;
   let changeCity = document.querySelector("#city");
-  changeCity.innerHTML = response.data.name;
+  changeCity.innerHTML = ` ${response.data.name}`;
   let weatherCondition = response.data.weather[0].description;
   let displayWeatherCondition = document.querySelector("#sky-condition");
   displayWeatherCondition.innerHTML = `${weatherCondition}`;
