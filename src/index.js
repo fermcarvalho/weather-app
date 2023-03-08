@@ -46,18 +46,6 @@ changeDate.innerHTML = changeDateAndYear(now);
 let changeTime = document.querySelector("#current-day-hour");
 changeTime.innerHTML = changeDayAndTime(now);
 
-// feature 2
-
-function searchCity(event) {
-  event.preventDefault();
-  let cityInput = document.querySelector("#search-city");
-  let currentCity = document.querySelector("#city");
-  currentCity.innerHTML = `${cityInput.value}`;
-}
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", searchCity);
-
 // Bonus Feature
 
 function convertToF(temp) {
@@ -110,21 +98,23 @@ function showWeather(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
 }
 
-function searchForCity(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-city").value;
+function searchForCity(city) {
   let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+}
+
+function getCityInput(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-city").value;
+  searchForCity(city);
 }
 
 // bonus feature added a feature when click on the city of the top change the weather
 function searchOnClick(event) {
   event.preventDefault();
   const city = event.target.innerText;
-  let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showWeather);
+  searchForCity(city);
 }
 
 const citySearch = document.querySelector(".city-choice");
@@ -149,4 +139,7 @@ function showGeoLocation(event) {
 
 let currentLocation = document.querySelector("#current-location-button");
 currentLocation.addEventListener("click", showGeoLocation);
-form.addEventListener("submit", searchForCity);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", getCityInput);
+
+searchForCity("Calgary");
