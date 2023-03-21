@@ -81,24 +81,26 @@ changeTemperatureFarenheit.addEventListener("click", updateTempFarenheit);
 
 function displayForescast() {
   let forescastElement = document.querySelector("#weather-forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = ["THU", "FRIDAY", "SAT", "SUN"];
+  let forecastHTML = ``;
+  let days = ["THU", "FRI", "SAT", "SUN"];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
-      ` <div class="col-2">
-          <p class="fw-bold" id="weather-forecast-date">${day}</p>
-          <i class="fa-solid fa-2xl fa-cloud-sun"></i>
-        </div>
-        <div class="weather-forecast-temperatures mt-4">
+      `
+        <div class="col text-center">
+          <div class="fw-bold weather-forecast-date">${day}</div>
+          <div class="mt-3">
+            <i class="fa-solid fa-2xl fa-cloud-sun"></i>
+          </div>
+          <div class="weather-forecast-temperatures mt-4">
             <span class="weather-forecast-max"> H:4° </span>
             <span class="weather-forecast-min"> L:-6° </span>
           </div>
+          </div>
         </div>
-      </div>
-    </div> `;
+      `;
   });
-  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + ``;
   forescastElement.innerHTML = forecastHTML;
 }
 
