@@ -45,9 +45,3 @@ input[type="submit"],
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
-
-.next-days :hover {
-  background-color: #ff7e67;
-  cursor: pointer;
-  transition: all 200ms ease-in-out;
-}

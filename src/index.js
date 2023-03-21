@@ -79,6 +79,29 @@ changeTemperatureFarenheit.addEventListener("click", updateTempFarenheit);
 //when a user searches for a city, it should display the name of the city on the result page
 //and the current temperature of the city.
 
+function displayForescast() {
+  let forescastElement = document.querySelector("#weather-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["THU", "FRIDAY", "SAT", "SUN"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2">
+          <p class="fw-bold" id="weather-forecast-date">${day}</p>
+          <i class="fa-solid fa-2xl fa-cloud-sun"></i>
+        </div>
+        <div class="weather-forecast-temperatures mt-4">
+            <span class="weather-forecast-max"> H:4° </span>
+            <span class="weather-forecast-min"> L:-6° </span>
+          </div>
+        </div>
+      </div>
+    </div> `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forescastElement.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
@@ -143,3 +166,4 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", getCityInput);
 
 searchForCity("Calgary");
+displayForescast();
