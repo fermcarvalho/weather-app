@@ -79,7 +79,8 @@ changeTemperatureFarenheit.addEventListener("click", updateTempFarenheit);
 //when a user searches for a city, it should display the name of the city on the result page
 //and the current temperature of the city.
 
-function displayForescast() {
+function displayForescast(response) {
+  console.log(response.data.daily);
   let forescastElement = document.querySelector("#weather-forecast");
   let forecastHTML = ``;
   let days = ["THU", "FRI", "SAT", "SUN"];
@@ -104,6 +105,13 @@ function displayForescast() {
   forescastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
+  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForescast);
+}
+
 function showWeather(response) {
   console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
@@ -121,6 +129,8 @@ function showWeather(response) {
   humidity.innerHTML = response.data.main.humidity;
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
+
+  getForecast(response.data.coords);
 }
 
 function searchForCity(city) {
@@ -168,4 +178,3 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", getCityInput);
 
 searchForCity("Calgary");
-displayForescast();
