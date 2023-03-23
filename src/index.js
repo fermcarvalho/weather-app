@@ -108,7 +108,7 @@ function displayForescast(response) {
 function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "15b6ba0523386a8a73b38b2440a74dea";
-  let apiUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForescast);
 }
 
@@ -130,7 +130,7 @@ function showWeather(response) {
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed);
 
-  getForecast(response.data.coords);
+  getForecast(response.data.coord);
 }
 
 function searchForCity(city) {
