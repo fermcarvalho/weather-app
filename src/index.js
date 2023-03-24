@@ -79,24 +79,42 @@ changeTemperatureFarenheit.addEventListener("click", updateTempFarenheit);
 //when a user searches for a city, it should display the name of the city on the result page
 //and the current temperature of the city.
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForescast(response) {
   let forecast = response.data.daily;
   let forescastElement = document.querySelector("#weather-forecast");
   let forecastHTML = ``;
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
         <div class="col text-center">
-          <div class="fw-bold weather-forecast-date">${forecastDay.dt}</div>
-          <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42px"/>
+          <div class="fw-bold weather-forecast-date">${formatDay(
+            forecastDay.dt
+          )}</div>
+          <img src="https://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png" alt="" width="42px"/>
           <div class="weather-forecast-temperatures mt-4">
-            <span class="weather-forecast-max">${forecastDay.temp.max}°</span>
-              <span class="weather-forecast-min">${forecastDay.temp.min}°</span>
+            <span class="weather-forecast-max">${Math.round(
+              forecastDay.temp.max
+            )}°</span>
+              <span class="weather-forecast-min">${Math.round(
+                forecastDay.temp.min
+              )}°</span>
           </div>
           </div>
         </div>
       `;
+    }
   });
   forecastHTML = forecastHTML + ``;
   forescastElement.innerHTML = forecastHTML;
