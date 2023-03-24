@@ -89,7 +89,7 @@ function displayForescast(response) {
       `
         <div class="col text-center">
           <div class="fw-bold weather-forecast-date">${forecastDay.dt}</div>
-          <img src="htpp://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42px"/>
+          <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42px"/>
           <div class="weather-forecast-temperatures mt-4">
             <span class="weather-forecast-max">${forecastDay.temp.max}°</span>
               <span class="weather-forecast-min">${forecastDay.temp.min}°</span>
