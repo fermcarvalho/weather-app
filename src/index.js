@@ -80,22 +80,19 @@ changeTemperatureFarenheit.addEventListener("click", updateTempFarenheit);
 //and the current temperature of the city.
 
 function displayForescast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forescastElement = document.querySelector("#weather-forecast");
   let forecastHTML = ``;
-  let days = ["THU", "FRI", "SAT", "SUN"];
-  days.forEach(function (day) {
+  forecast.forEach(function (forecastDay) {
     forecastHTML =
       forecastHTML +
       `
         <div class="col text-center">
-          <div class="fw-bold weather-forecast-date">${day}</div>
-          <div class="mt-3">
-            <i class="fa-solid fa-2xl fa-cloud-sun"></i>
-          </div>
+          <div class="fw-bold weather-forecast-date">${forecastDay.dt}</div>
+          <img src="htpp://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" width="42px"/>
           <div class="weather-forecast-temperatures mt-4">
-            <span class="weather-forecast-max"> H:4° </span>
-            <span class="weather-forecast-min"> L:-6° </span>
+            <span class="weather-forecast-max">${forecastDay.temp.max}°</span>
+              <span class="weather-forecast-min">${forecastDay.temp.min}°</span>
           </div>
           </div>
         </div>
